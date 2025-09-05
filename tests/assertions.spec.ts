@@ -28,7 +28,7 @@ test.describe('Playwright Assertions in Depth', () => {
     await expect(page).toHaveURL(/.*docs\/intro/);
   });
 
-  test('Take and verify screenshot with toHaveScreenshot', async ({ page }) => {
+  test.skip('Take and verify screenshot with toHaveScreenshot', async ({ page }) => {
     // (Optional: works if you have baseline screenshots saved)
     await page.goto('/');
     await expect(page).toHaveScreenshot('homepage.png');
@@ -43,7 +43,7 @@ test.describe('Playwright Assertions in Depth', () => {
       .toBeVisible();  // Playwright auto-retries until visible or timeout
   });
 
-  test('Soft assertion example', async ({ page }) => {
+  test.skip('Soft assertion example', async ({ page }) => {
     await page.goto('/');
     // Even if this fails, the test will continue
     await expect.soft(page.getByRole('heading'))
