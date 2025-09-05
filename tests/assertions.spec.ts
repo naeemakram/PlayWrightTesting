@@ -44,11 +44,13 @@ test.describe('Playwright Assertions in Depth', () => {
   });
 
   test('Soft assertion example', async ({ page }) => {
-    await page.goto('https://playwright.dev/');
+    await page.goto('/');
     // Even if this fails, the test will continue
     await expect.soft(page.getByRole('heading'))
       .toHaveText('Nonexistent Heading');
-    await expect(page.getByRole('link', { name: 'Docs' }))
+    
+      const gettingStartedLink = page.getByText(/Getting Started/i);
+      await expect(gettingStartedLink)
       .toHaveAttribute('href', '/docs/intro');
   });
 
