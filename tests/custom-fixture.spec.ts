@@ -23,10 +23,20 @@ const test = base.extend<{ authPage: Page }>({
   },
 }); // peculiar syntax for extending fixtures
 
-test('user sees dashboard stats', async ({ authPage }) => {
+test('User sees dashboard stats', async ({ authPage }) => {
   await expect(authPage.getByRole('heading', { name: 'Dashboard page title' })).toBeVisible();   
 });
 
-test('user sees account settings', async ({ authPage }) => {
+test('User sees account settings', async ({ authPage }) => {
   await expect(authPage.getByRole('heading', { name: ' Recent Login Attempts' })).toBeVisible();
+});
+
+
+test('Show status is working', async ({ authPage }) => {
+  await expect(authPage.getByRole('heading', { name: 'Dashboard page title' })).toBeVisible();   
+  
+  await authPage.getByRole('button', { name: 'Show Success' }).click();
+    // This message appears after a short delay.
+    await expect(authPage.getByText('Success!'))
+      .toBeVisible();  // Playwright auto-retries until visible or timeout
 });

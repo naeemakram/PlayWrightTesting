@@ -35,7 +35,7 @@ test.describe('Playwright Assertions in Depth', () => {
   });
 
   test('Check delayed element with auto-retry', async ({ page }) => {
-    await page.goto('https://testautomationdemo.replit.app/');
+    await page.goto('/');
     await page.getByRole('button', { name: 'Show Success' }).click();
 
     // This message appears after a short delay.
