@@ -20,19 +20,19 @@ const test = base.extend<{ authPage: Page }>({
 }); // peculiar syntax for extending fixtures
 
 test('User sees dashboard stats', async ({ authPage }) => {
-  authPage.waitForURL('**/dashboard');
+  await authPage.waitForURL('**/dashboard');
   await expect(authPage.getByRole('heading', { name: 'Dashboard page title' })).toBeVisible();   
 });
 
 test('User sees account settings', async ({ authPage }) => {
-  authPage.waitForURL('**/dashboard');
+  await authPage.waitForURL('**/dashboard');
   await expect(authPage.getByRole('heading', { name: ' Recent Login Attempts' })).toBeVisible();
 });
 
 
 test('Show status is working', async ({ authPage }) => {
 
-  authPage.waitForURL('**/dashboard');
+  await authPage.waitForURL('**/dashboard');
 
   await expect(authPage.getByRole('heading', { name: 'Dashboard page title' })).toBeVisible();    
   await authPage.getByRole('button', { name: 'Show Success' }).click();
