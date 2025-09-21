@@ -12,11 +12,7 @@ const test = base.extend<{ authPage: Page }>({
     await page.goto('/');
     await page.getByRole('textbox', { name: 'Enter your email address' }).fill('admin@testautomationtv.com');
     await page.getByRole('textbox', { name: 'Enter your password' }).fill('admin123');
-
-    await Promise.all([      
-      page.getByRole('button', { name: 'Sign in to your account' }).click(),
-      page.waitForURL('**/dashboard'),
-    ]);
+    await page.getByRole('button', { name: 'Sign in to your account' }).click();
 
     // Hand the logged-in page to the test
     await use(page);
@@ -24,17 +20,21 @@ const test = base.extend<{ authPage: Page }>({
 }); // peculiar syntax for extending fixtures
 
 test('User sees dashboard stats', async ({ authPage }) => {
+  authPage.waitForURL('**/dashboard');
   await expect(authPage.getByRole('heading', { name: 'Dashboard page title' })).toBeVisible();   
 });
 
 test('User sees account settings', async ({ authPage }) => {
+  authPage.waitForURL('**/dashboard');
   await expect(authPage.getByRole('heading', { name: ' Recent Login Attempts' })).toBeVisible();
 });
 
 
 test('Show status is working', async ({ authPage }) => {
-  await expect(authPage.getByRole('heading', { name: 'Dashboard page title' })).toBeVisible();   
-  
+
+  authPage.waitForURL('**/dashboard');
+
+  await expect(authPage.getByRole('heading', { name: 'Dashboard page title' })).toBeVisible();    
   await authPage.getByRole('button', { name: 'Show Success' }).click();
     // This message appears after a short delay.
     await expect(authPage.getByText('Success!'))
