@@ -17,6 +17,7 @@ test('auto welcome alert on page load (page.once pattern)', async ({ page }) => 
     expect(dialog.type()).toBe('alert');
     await dialog.accept();
   });
+  
   // The page JS shows this status after accepting the alert
   await expect(page.locator('#dialog-status')).toContainText('Welcome dialog accepted!', { timeout: 3000 });
 });
@@ -97,14 +98,15 @@ test('manual prompt button, accept with text', async ({ page }) => {
   // 1. Register a one-time handler for the 'dialog' event.
   // This code will run AS SOON as the dialog appears.
   page.once('dialog', async dialog => {
+
     expect(dialog.type()).toBe('prompt');
     expect(dialog.message()).toMatch(/This is a JavaScript prompt dialog/i);
-    await dialog.accept('Playwright FTW'); //(); // This unblocks the page and allows the click to complete.
+    await dialog.accept('Playwright FTW!'); //(); // This unblocks the page and allows the click to complete.
   });
 
   await page.getByRole('button', { name: /show prompt/i }).click();  
 
-  await expect(page.locator('#dialog-status')).toContainText('Prompt accepted with text: "Playwright FTW"', { timeout: 3000 });
+  await expect(page.locator('#dialog-status')).toContainText('Prompt accepted with text: "Playwright FTW!"', { timeout: 3000 });
 });
 
 /**
