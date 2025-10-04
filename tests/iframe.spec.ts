@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test('fill credit card details inside iframe', async ({ page }) => {
   // 1) Open your demo page
-  await page.goto('https://testautomationdemo.replit.app/payment');
+  await page.goto('/payment');
 
   // 2) Target the iframe by ID and work inside it
   // const frame = page.frameLocator('#payment-frame');
