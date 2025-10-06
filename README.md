@@ -234,3 +234,5 @@ This project is licensed under the ISC License - see the package.json file for d
 ## 🏷 Keywords
 
 `playwright`, `end-to-end-testing`, `e2e-testing`, `test-automation`, `cross-browser-testing`, `typescript`, `ui-testing`, `web-testing`, `selenium-alternative`, `microsoft-playwright`, `test-framework`, `automated-testing`, `quality-assurance`, `ci-cd`, `testing-tutorial`, `playwright-demo`, `web-automation`, `browser-testing`, `test-driven-development`
+
+## Working with Playwright Agentic AI
