@@ -2,6 +2,9 @@
 
 A comprehensive **Playwright end-to-end testing** demonstration repository showcasing real-world test automation patterns, best practices, and advanced features. This project serves as a practical learning resource for mastering **cross-browser testing**, **UI automation**, and **modern web testing techniques** with Playwright.
 
+This code is related to my Udemy Playwright test automation course, a link is given below. 
+
+**[Playwright Test Automation Course](https://playwright.testautomationtv.com/)**
 ## 🎯 What is this Repository About?
 
 This repository is a **hands-on Playwright tutorial** that demonstrates essential test automation concepts through practical examples. It showcases how to build robust, maintainable end-to-end tests using Microsoft's Playwright framework against a real test application hosted at `https://testautomationdemo.replit.app`.
