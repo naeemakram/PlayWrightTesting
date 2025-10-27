@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
-test('basic auth demo', async ({ browser }) => {
-  // Create a new context with credentials
+test('login and save session', async ({ browser }) => {
+ // Create a new context with credentials
   const context = await browser.newContext({
     httpCredentials: {
       username: 'admin@testautomationtv.com',
@@ -15,13 +15,8 @@ test('basic auth demo', async ({ browser }) => {
   await page.waitForURL('**/browser-auth-protected'); // Wait for the URL to confirm successful navigation
   // Verify access was successful
   await expect(page.getByRole('heading', { name: /Authentication Successful/i })).toBeVisible();
-});
+  // Save session to a file
 
-test('embed auth demo', async ({ page }) => {
-  // Create a new context with credentials
-  await page.goto('https://admin@testautomationtv.com:admin123@demo.testautomationtv.com/browser-auth-protected');
-  await page.waitForURL('**/browser-auth-protected'); // Wait for the URL to confirm successful navigation
-  await expect(page.getByRole('heading', { name: /Authentication Successful/i })).toBeVisible();
+  await context.storageState({ path: 'auth.json' });
 });
-
 
