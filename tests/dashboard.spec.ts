@@ -16,7 +16,7 @@ test.describe('Dashboard Feature', () => {
 
   test('user sees account settings', async ({ page }) => {
     await page.waitForURL('**/dashboard');
-    await expect(page.getByRole('heading', { name: ' Recent Login Attempts' })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Recent Login Attempts' })).toBeVisible();
   });
 
 });
