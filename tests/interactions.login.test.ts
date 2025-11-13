@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('logs in and verifies Welcome back message', async ({ page }) => {
-  await page.goto('https://testautomationdemo.replit.app/');
+  await page.goto('/');
 
   // Fill credentials using label-based locators (stable & readable)
 
